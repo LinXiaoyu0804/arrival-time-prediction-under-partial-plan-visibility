@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "time": "2026-09-13 23:06:09",
+  "batch_columns": [
+    "Country",
+    "Week ID",
+    "Day of Week"
+  ],
+  "route_batch_anchor": "minimum IndexA",
+  "windows": 3,
+  "answer_categories": [
+    3,
+    5
+  ],
+  "placebo_tail_response_complete": true,
+  "placebo_repetitions": 100,
+  "extended_time": "2026-09-13 23:10:53",
+  "direct_response_gain_complete": true,
+  "direct_response_time": "2026-09-13 23:13:40",
+  "operational_stress_complete": true,
+  "stress_time": "2026-09-13 23:16:15",
+  "dispatch_wave_complete": true,
+  "dispatch_wave_repetitions": 50
+}

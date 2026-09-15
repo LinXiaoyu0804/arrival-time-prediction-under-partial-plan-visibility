@@ -1,0 +1,9 @@
+k,rule,comparison,difference,ci_low,ci_high,routes,drivers
+3,knee90,direct_response_gain_minus_plain_DG_same_config,0.6684946878802004,0.4274549931267382,0.9363257619589757,4112,261
+3,knee90,direct_response_gain_minus_uniform_DG_same_budget,0.8997816122567879,0.6213675245284325,1.2222623177600829,4112,261
+3,minimum_mae,direct_response_gain_minus_plain_DG_same_config,0.6979439107623003,0.4768182769150973,0.9384689937647054,4112,261
+3,minimum_mae,direct_response_gain_minus_uniform_DG_same_budget,0.9315740221265046,0.6488843142734805,1.251904637503256,4112,261
+5,knee90,direct_response_gain_minus_plain_DG_same_config,0.7533996273728343,0.5248785237215499,0.9871367364541884,4112,261
+5,knee90,direct_response_gain_minus_uniform_DG_same_budget,1.0200760804371454,0.7475549677931157,1.3076329824490704,4112,261
+5,minimum_mae,direct_response_gain_minus_plain_DG_same_config,0.6910762994558497,0.438474188012107,0.9772976346470726,4112,261
+5,minimum_mae,direct_response_gain_minus_uniform_DG_same_budget,1.1695157217855339,0.8319828877375868,1.5391698624139154,4112,261

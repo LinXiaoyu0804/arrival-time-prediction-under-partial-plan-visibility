@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-13",
+  "status": "Specified after the operational daily-batch result and before inspecting these outputs.",
+  "questions": [
+    "Is the daily-batch gain explained by DG information rather than route length or random concentration?",
+    "Does the result survive metrics other than mean absolute error and both countries?",
+    "Are cross-route DG scores ordered with realized proxy-stage value in forward data?",
+    "Under the frozen severe nonresponse scenario, does a response model trained only on past synthetic responses improve allocation at matched attempts?"
+  ],
+  "placebos": {
+    "random_capacity": "Random task priorities with the same daily capacity, minimum one, and cap ten.",
+    "route_size_only": "Favor short routes, randomize tasks within equal route sizes.",
+    "permuted_DG": "Permute DG scores among tasks inside each daily country batch.",
+    "ER": "Use predicted baseline error rather than marginal gain.",
+    "oracle": "Use realized proxy-stage gain; this is an unattainable diagnostic upper bound."
+  },
+  "monte_carlo_repetitions": 100,
+  "primary_budget": "Previously frozen K=5 DG minimum-MAE budget for each window.",
+  "operational_constraints": "Daily country batches, minimum one query per route, maximum ten.",
+  "alternative_metrics": [
+    "delivery-equal MAE",
+    "delivery-equal RMSE",
+    "median absolute error",
+    "90th and 95th percentile absolute error",
+    "within 30 minutes",
+    "over 60 minutes",
+    "route-equal RMSE and tail error"
+  ],
+  "response_model": "Logistic regression of the frozen synthetic response indicator on stage entropy, fitted on the two-week budget-tuning period and applied to the following evaluation window.",
+  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913.",
+  "limits": "The response experiment validates the response-aware objective only within a synthetic entropy-linked scenario and is not evidence about human response behavior."
+}

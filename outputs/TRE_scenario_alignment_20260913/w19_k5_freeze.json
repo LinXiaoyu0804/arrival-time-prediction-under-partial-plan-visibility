@@ -1,0 +1,11 @@
+{
+  "time": "2026-09-13 11:52:37",
+  "no_historical_plan_fields": true,
+  "calibration_gain_source": "historical actual execution stage",
+  "refusal_thresholds": {
+    "0.5": 0.8097517091334662,
+    "0.75": 0.9116563630979386
+  },
+  "train_routes": 2856,
+  "cal_routes": 1347
+}

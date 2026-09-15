@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-13",
+  "status": "Frozen before new baseline evaluation; retrospective extension of an already explored study, not a new confirmatory holdout.",
+  "reuse": "Identical cached evaluation features and base/aware ETA models; same three rolling windows, K=3/5, historical actual stages only in calibration, software-plan proxy in evaluation.",
+  "budget": "Exactly one query per route; same task eligibility and deterministic tie break as original.",
+  "methods": {
+    "expected_change": "sum_s p(s|x)*abs(f1(x,s)-f0(x)); sensitivity heuristic, not expected loss reduction.",
+    "generative_voi": "sum_s p(s|x)*E_e[abs(f0-f1(x,s)-e)-abs(e)], where e=y-f1(x,s) is the empirical stage-conditional calibration residual distribution. Integrals exact using sorted residuals. Model-based one-step expected utility adaptation, not an exact reproduction of a published neural architecture.",
+    "conditional_risk": "Fit calibration absolute baseline and informed losses on available x plus observed historical stage. Enumerate all stages and integrate predicted loss difference under the same frozen p(s|x).",
+    "separate_risk": "Fit two calibration risk regressors on available x: baseline loss and observed informed loss; subtract predictions. One-step risk regression control, identical learner parameters and route weights as direct gain.",
+    "error_only": "Use predicted baseline absolute loss to query the most error-prone task. Separates high error from high information value."
+  },
+  "parameters": "All additional risk models use original selector parameters: 200 trees, lr .04,15 leaves,min child100,lambda10,seed20260913; no evaluation tuning. Negative predicted risks clipped at zero, then differences computed.",
+  "statistics": "Route-equal MAE; paired 2000 driver-cluster bootstrap, same seed; report all windows and methods. Bonferroni simultaneous 95% intervals over 2 stage variants x 5 new primary comparisons alongside ordinary intervals.",
+  "stress": "clean,independent refusal25/50,entropy-linked refusal25/50,adjacent error10/20,uniform other-stage error10/20. Exact expectations; no evaluation-noise fitting.",
+  "sources": [
+    "https://pallika.github.io/files/afa-nips08.pdf",
+    "https://proceedings.mlr.press/v139/li21p/li21p.pdf"
+  ],
+  "limits": "Comparisons are transparent adaptations to fixed-feature cross-instance regression acquisition, not complete reproductions of general sequential AFA systems; no human responses or economic cost observations."
+}

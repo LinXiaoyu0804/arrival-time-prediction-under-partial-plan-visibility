@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-13",
+  "status": "Specified before inspecting multi-query daily-batch stress results.",
+  "question": "Does the clean-answer, past-only daily-batch policy remain useful under refusal and adjacent-stage answer errors when it queries multiple tasks per route?",
+  "policy": "Reuse the clean-answer K=3/K=5 DG minimum-MAE budget chosen from past data. Compare equal route quotas with daily country-batch DG/route-size allocation, minimum one and cap ten.",
+  "conditions": [
+    "clean proxy answer",
+    "independent 25% and 50% refusal (exact expectation)",
+    "entropy-linked refusal at calibration 75th and 50th percentile thresholds",
+    "10% and 20% adjacent-stage answer error (exact expectation)"
+  ],
+  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913.",
+  "limits": "All response and answer-error processes are sensitivity scenarios, not human observations."
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-14",
+  "status": "Specified after the final audit and before inspecting anchor-sensitivity outputs.",
+  "question": "Does the same-batch capacity-allocation conclusion depend on reconstructing a route's dispatch day from its first executed stop?",
+  "population": "K=5 clean proxy-answer evaluation windows; past-only minimum-MAE DG budgets.",
+  "policy": "DG score divided by route size, minimum one and maximum ten queries per route.",
+  "anchors": {
+    "earliest_executed": "Country-week-weekday of minimum IndexA; primary definition.",
+    "latest_executed": "Country-week-weekday of maximum IndexA.",
+    "modal_event_date": "Most frequent country-week-weekday among route tasks; deterministic ties.",
+    "strict_single_date_routes": "Exclude routes whose tasks span more than one country-week-weekday."
+  },
+  "matched_capacity": "Exactly the uniform-route attempt count within every reconstructed batch.",
+  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260914."
+}

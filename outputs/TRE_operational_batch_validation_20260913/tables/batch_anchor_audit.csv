@@ -1,0 +1,13 @@
+window,anchor_definition,routes,tasks,batches,cross_date_routes_in_full_window,attempts,all_batch_capacities_equal
+13,earliest_executed,1347,19813,68,79,4041,True
+13,latest_executed,1347,19813,61,79,4041,True
+13,modal_event_date,1347,19813,67,79,4041,True
+13,strict_single_date_routes,1268,18851,61,79,3804,True
+19,earliest_executed,1402,20752,68,88,7010,True
+19,latest_executed,1402,20752,63,88,7010,True
+19,modal_event_date,1402,20752,68,88,7010,True
+19,strict_single_date_routes,1314,19700,63,88,6570,True
+25,earliest_executed,1363,18672,79,71,6815,True
+25,latest_executed,1363,18672,73,71,6815,True
+25,modal_event_date,1363,18672,78,71,6815,True
+25,strict_single_date_routes,1292,17846,73,71,6460,True

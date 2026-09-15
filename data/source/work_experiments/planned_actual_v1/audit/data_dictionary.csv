@@ -1,0 +1,17 @@
+field,description,information_timing,allowed_in_manifest_regime_M,allowed_in_recorded_plan_regime_P,allowed_in_execution_oracle_regime_E
+Route ID,Unique route identifier in the released file.,identifier_only,False,False,False
+Driver ID,"Anonymized driver identifier; use only training-period historical encodings, never the raw integer as an ordinal quantity.",available_pre_execution,True,True,True
+Stop ID,Stop identifier; repeated IDs within a route are excluded by the frozen strict filter.,identifier_only,False,False,False
+Address ID,Anonymized physical-location identifier; use only training-period historical encodings.,available_pre_execution,True,True,True
+Week ID,"Encoded chronological week identifier, 0 through 31; reserved for temporal splitting.",split_only,False,False,False
+Country,0 = Norway; 1 = Denmark.,available_pre_execution,True,True,True
+Day of Week,Calendar day of actual arrival; excluded from route-start features because midnight crossing can make it outcome-timed.,outcome_context,False,False,False
+IndexP,Position in the recorded pre-execution planned sequence.,available_pre_execution,False,True,False
+IndexA,Position in the realized sequence; oracle-only information.,post-execution_or_oracle,False,False,True
+Arrived Time,Actual arrival in minutes from the released route reference; target-only at route start.,outcome,False,False,False
+Earliest Time,Earliest allowed service time in minutes from the route reference.,available_pre_execution,True,True,True
+Latest Time,Latest allowed service time in minutes from the route reference.,available_pre_execution,True,True,True
+DistanceP,Kilometres from the previous stop in IndexP order.,available_pre_execution,False,True,False
+DistanceA,Kilometres from the previous stop in IndexA order; oracle-only information.,post-execution_or_oracle,False,False,True
+Depot,"1 for depot, 0 otherwise.",available_pre_execution,True,True,True
+Delivery,"1 for delivery, 0 for pickup/non-delivery.",available_pre_execution,True,True,True

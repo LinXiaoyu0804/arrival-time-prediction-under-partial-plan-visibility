@@ -1,0 +1,3 @@
+allocation,routes,mean_attempts,min_attempts,p10_attempts,median_attempts,p90_attempts,p95_attempts,max_attempts,at_cap_percent,one_query_percent,attempt_gini
+daily_DG,4112,4.344844357976654,1,1.0,4.0,10.0,10.0,10,10.554474708171206,25.0,0.39198289166083344
+uniform_DG,4112,4.344844357976654,3,3.0,5.0,5.0,5.0,5,0.0,0.0,0.10139400818283617

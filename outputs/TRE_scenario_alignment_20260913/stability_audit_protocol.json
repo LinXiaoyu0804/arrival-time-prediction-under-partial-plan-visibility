@@ -1,0 +1,9 @@
+{
+  "time": "2026-09-13 11:58:06",
+  "type": "Follow-up conclusion-stability audit; no model fitting or tuning",
+  "natural_mismatch_groups": "Within-route fraction of delivery tasks whose recorded planned stage differs from eventual execution stage: <=10%,(10%,30%],>30%. Evaluation-only strata never enter selectors.",
+  "driver_groups": "Previously seen in ETA training or calibration vs unseen",
+  "robustness": "Compare gain against all four fixed simple rules under every predefined response scenario. Both direction and paired95% intervals reported. No claim all real-world shifts are covered.",
+  "stress_extension": "Uniform arbitrary-stage misreport10/20 percent, using exact expectation over all other stage labels. This includes non-adjacent errors; fixed choices.",
+  "interpretation": "Evidence that method ordering persists under tested discrepancies, not proof that software plan equals human intent."
+}

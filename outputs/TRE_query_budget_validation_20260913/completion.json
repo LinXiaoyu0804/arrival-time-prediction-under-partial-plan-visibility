@@ -1,0 +1,21 @@
+{
+  "time": "2026-09-13 22:05:36",
+  "windows": 3,
+  "answer_categories": [
+    3,
+    5
+  ],
+  "budgets": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    10,
+    "all"
+  ],
+  "route_rows": 607936,
+  "status": "complete",
+  "report_complete": true,
+  "driver_cluster_intervals": true
+}

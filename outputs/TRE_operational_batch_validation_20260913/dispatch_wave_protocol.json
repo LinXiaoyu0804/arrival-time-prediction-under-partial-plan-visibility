@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-14",
+  "status": "Specified before inspecting dispatch-wave sensitivity results.",
+  "question": "How many simultaneously coordinatable routes are needed for cross-route DG allocation to improve on equal per-route quotas?",
+  "design": "Within each route-start country/day batch, assign routes by outcome-independent seeded hashes to waves of at most 1, 2, 5, 10, 20, or 50 routes. Repeat 50 partitions and average route-level outcomes. The daily condition leaves the full day batch intact.",
+  "policy": "K=5, previously frozen clean-answer DG minimum-MAE budget per window, at least one query per route, at most ten, score divided by route size, exact same total attempts within every wave.",
+  "statistics": "Paired driver-cluster bootstrap on the Monte Carlo mean route outcomes, 2,000 resamples.",
+  "limits": "Synthetic wave partitions measure coordination-scale sensitivity, not observed depot waves."
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-13",
+  "status": "Specified after observing that a separately estimated response probability multiplied by DG raised response rate but did not improve severe-scenario error.",
+  "question": "In the frozen severe entropy-linked nonresponse scenario, can direct estimation of realized response-weighted gain E[R*d|X] outperform the product of separately estimated response probability and clean-answer DG?",
+  "training": "For each window and stage granularity, train a temporary LightGBM regressor on the first four calibration weeks and choose budget/cap on the final two weeks. Refit on all six calibration weeks, then apply the frozen configuration to the forward evaluation window.",
+  "target": "Synthetic response indicator times realized proxy-plan-stage error reduction. This target is available only because the sensitivity scenario defines responses for every retrospective task.",
+  "allocation": "Daily country batch, minimum one query per route for positive budgets, score divided by route size, candidate budgets 0/1/2/3/5/10 and caps 5/7/10/15/unlimited.",
+  "comparators": [
+    "plain DG under the same selected budget and cap",
+    "uniform per-route DG under the same selected budget",
+    "the previously tested separate p(response) times DG policy"
+  ],
+  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913.",
+  "limit": "This tests estimator structure inside a synthetic response scenario. It cannot establish human response probabilities or field effectiveness."
+}

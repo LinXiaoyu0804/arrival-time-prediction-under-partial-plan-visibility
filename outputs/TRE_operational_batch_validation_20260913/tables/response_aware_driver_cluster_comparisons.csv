@@ -1,0 +1,3 @@
+comparison,difference,ci_low,ci_high,routes,drivers
+daily_response_DG_minus_uniform_DG,0.11320459973782494,-0.36560615183421846,0.5252687925989827,4112,261
+daily_response_DG_minus_daily_DG,-0.13471282206173651,-0.643112676817915,0.29245165028773734,4112,261

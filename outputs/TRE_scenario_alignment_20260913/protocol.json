@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-13",
+  "scope": "Scenario bridge only: all learning uses past completed deliveries, not recorded historical plans. Evaluation queries reveal recorded SOFTWARE planned stages as a proxy, NOT observed driver predeparture intent. Actual evaluation sequence is an unattainable diagnostic only.",
+  "windows": [
+    [
+      0,
+      6,
+      7,
+      12,
+      13,
+      18
+    ],
+    [
+      0,
+      12,
+      13,
+      18,
+      19,
+      24
+    ],
+    [
+      0,
+      18,
+      19,
+      24,
+      25,
+      31
+    ]
+  ],
+  "history": "Historical IndexP and DistanceP removed before all learning. Reuse core history encoding by mapping historical execution rank to its legacy rank slot, then rename features execution_rank. Both upstream supervision and informed ETA stage labels use historical actual order. Calibration selector gain labels also use past completed actual-order stages.",
+  "variants": "K=3 and K=5, both fixed and fully reported. 3 route OOF upstream folds, original 300-tree rank,60-round classifier,500-tree ETA and 200-tree gain regression; no tuning.",
+  "budget": "One attempted query per route for gain,entropy,stage-disagreement,latest-ETA and uniform random exact expectation. Refusal gives baseline prediction; no second query.",
+  "response_tests": "Perfect proxy response; independent25/50 percent refusal; refusal for normalized entropy above calibration75th/50th percentile; adjacent-stage error10/20 percent. Exact expectations. These are scenarios, not empirical human error/cost estimates.",
+  "references": "Unqueried baseline; all recorded-plan-stage labels available; direct full recorded-plan ETA trained on original-plan history, explicitly privileged historical-information reference; future execution-stage oracle diagnostic.",
+  "checks": "All-route time boundaries, route OOF isolation, no historical-plan input dependency, current forbidden-field perturbation plus row shuffle for feature/prediction invariance; stages for evaluation only accessed after scores frozen.",
+  "decision": "Primary feasibility is actual-history-only gain selector vs fixed simple rules with SOFTWARE plan proxy answers. No claim of human feasibility; all variants reported without selecting on evaluation. Retain any failure."
+}

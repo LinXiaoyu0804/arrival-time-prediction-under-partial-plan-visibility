@@ -1,0 +1,17 @@
+check,passed,detail
+primary matched-workload increment,True,"CI [0.541, 1.646]"
+primary total gain,True,"CI [2.508, 4.849]"
+identifying placebo comparisons,True,minimum lower CI=0.449
+alternative metrics,True,maximum upper CI=-0.512
+K5 stress: matched-workload increment,True,all lower CIs > 0
+K5 stress: total gain,True,all lower CIs > 0
+dispatch-wave granularity,True,minimum lower CI=0.216
+batch-anchor reconstruction,True,minimum lower CI=0.409
+direct response-gain target,True,minimum lower CI=0.438
+exact capacity by dispatch batch,True,max absolute difference=0
+outcome-field exclusion,True,all three windows invariant
+row-order invariance,True,all three windows invariant
+dispatch-time runtime,True,maximum p95=115.5 ms
+attempt-count match,True,"17,866 attempts per policy"
+DG versus independently tuned ER,True,minimum-MAE contrast excludes zero
+reconstructed cohort size audit,True,215 cohorts; median 17.0 routes

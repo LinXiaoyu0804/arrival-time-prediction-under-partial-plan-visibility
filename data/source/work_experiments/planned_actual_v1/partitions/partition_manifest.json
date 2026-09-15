@@ -1,0 +1,37 @@
+{
+  "raw_sha256": "8f17d15e189c99a34f2446daeaaf1a65d1e79045a94c4d3c452391c96d9cee00",
+  "audit_split_sha256": "2f1524d3160a0260068c7fe56cb39001fd7352150dee68e5dd9b82dffa39bde4",
+  "sensitivity_split_sha256": "4db739e85bd8ce893f1adec172f1faa0052b0ff8ec8e5b8da70bdf7ec2528df5",
+  "partitions": [
+    {
+      "split": "training",
+      "file": "training.parquet",
+      "rows": 100087,
+      "routes": 6213,
+      "strict_routes": 4209,
+      "delivery_rows": 91069,
+      "sha256": "87713d621771e114adf647382bba14ed43c5c845214c6c16330f748a6a47d60b",
+      "size_bytes": 2156282
+    },
+    {
+      "split": "validation",
+      "file": "validation.parquet",
+      "rows": 43376,
+      "routes": 2530,
+      "strict_routes": 1412,
+      "delivery_rows": 39185,
+      "sha256": "3a551eb24c281b9fb780801a00fcbc50aa190e4a5b5d9ee28fd9a50b96e0e37e",
+      "size_bytes": 1016822
+    },
+    {
+      "split": "confirmatory_evaluation",
+      "file": "confirmatory_evaluation.parquet",
+      "rows": 36599,
+      "routes": 2294,
+      "strict_routes": 1363,
+      "delivery_rows": 32881,
+      "sha256": "6259c82a79d1253d78a4da9713dea309c061ece87802dcc614737cb95e54a4e8",
+      "size_bytes": 876339
+    }
+  ]
+}

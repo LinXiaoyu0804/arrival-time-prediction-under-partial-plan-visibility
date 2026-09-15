@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-14",
+  "status": "Specified before inspecting the final-audit outputs.",
+  "policy": "K=5, clean proxy answers, DG score divided by route size, minimum one and maximum ten queries per route, with the query budget selected from prior data only.",
+  "questions": [
+    "Where is the gain concentrated and what is the workload distribution?",
+    "Does each dispatch batch use exactly the same number of attempts as the uniform comparator?",
+    "Is task selection invariant to outcome-field perturbation and row order?",
+    "How does the operational policy compare with privileged full-plan visibility?",
+    "Is the allocator fast enough to run at dispatch time?"
+  ],
+  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260914.",
+  "runtime_scope": "Already-computed feature matrix to DG prediction, plus constrained allocation.",
+  "selection_inputs": [
+    "dispatch batch identifier",
+    "route identifier",
+    "predicted DG score",
+    "route size",
+    "deterministic tie breaker",
+    "past-only budget",
+    "minimum one query and maximum ten queries per route"
+  ],
+  "outcome_fields_excluded": [
+    "target_minutes",
+    "planned_phase",
+    "actual_phase",
+    "base_error",
+    "proxy_error",
+    "oracle_error",
+    "clean_gain",
+    "responds",
+    "response_gain"
+  ],
+  "batch_reconstruction_note": "The public data omit an explicit dispatch date. Country-week-weekday batch labels were reconstructed from the first executed stop of each route. A deployment observes dispatch batch membership directly; no arrival or outcome value enters the allocation after the batch label has been assigned."
+}

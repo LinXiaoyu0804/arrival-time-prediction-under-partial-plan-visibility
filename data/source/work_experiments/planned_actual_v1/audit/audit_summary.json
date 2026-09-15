@@ -1,0 +1,194 @@
+{
+  "protocol_id": "TRE-planned-actual-confirmatory-20260822-v1",
+  "audit_scope": "Provenance, schema, quality filters, and split only; no M/G/P/E outcome comparison.",
+  "raw_rows": 249231,
+  "raw_routes": 19647,
+  "published_article_route_pairs": 19497,
+  "raw_vs_article_route_count_difference": 150,
+  "raw_drivers": 400,
+  "raw_addresses": 10864,
+  "raw_weeks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "missing_cells_by_field": {
+    "Route ID": 0,
+    "Driver ID": 0,
+    "Stop ID": 0,
+    "Address ID": 0,
+    "Week ID": 0,
+    "Country": 0,
+    "Day of Week": 0,
+    "IndexP": 0,
+    "IndexA": 0,
+    "Arrived Time": 0,
+    "Earliest Time": 0,
+    "Latest Time": 0,
+    "DistanceP": 0,
+    "DistanceA": 0,
+    "Depot": 0,
+    "Delivery": 0
+  },
+  "routes_spanning_week_ids": 567,
+  "route_week_assignment": "Week ID on the IndexA=0 row (actual route start), used only as temporal partition metadata and never as a model feature.",
+  "manifest_anchor": "Minimum Earliest Time within route, computed without IndexA or Arrived Time.",
+  "actual_promise_issue_timestamp_observed": false,
+  "claim_restriction": "Interpret results as pre-execution schedule-anchor forecasts, not as observations of actual customer-message issuance timing.",
+  "route_duration_definition": "Maximum delivery Arrived Time minus the manifest anchor.",
+  "filter_failure_counts_nonexclusive": {
+    "delivery_stops_lt_10": 8120,
+    "duplicate_route_stop_id": 6622,
+    "incomplete_planned_index": 0,
+    "incomplete_actual_index": 0,
+    "no_or_missing_delivery_arrival": 2,
+    "missing_manifest_anchor": 0,
+    "nonpositive_route_duration": 11,
+    "route_duration_gt_16h": 906
+  },
+  "eligible_routes": 6984,
+  "eligible_rows": 106932,
+  "eligible_delivery_stops": 99716,
+  "eligible_routes_with_negative_delivery_targets": 1,
+  "split_weeks": {
+    "training": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "validation": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "confirmatory_evaluation": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "split_route_counts": {
+    "training": 4209,
+    "validation": 1412,
+    "confirmatory_evaluation": 1363
+  },
+  "split_delivery_stop_counts": {
+    "training": 60170,
+    "validation": 20874,
+    "confirmatory_evaluation": 18672
+  },
+  "entity_overlap_manifest_only": {
+    "drivers": {
+      "validation": {
+        "unique": 209,
+        "unique_seen_in_training": 186,
+        "unique_seen_in_training_share": 0.8899521531100478,
+        "row_seen_in_training_share": 0.9605928977654382
+      },
+      "confirmatory_evaluation": {
+        "unique": 208,
+        "unique_seen_in_training": 169,
+        "unique_seen_in_training_share": 0.8125,
+        "row_seen_in_training_share": 0.8846843258315077
+      }
+    },
+    "addresses": {
+      "validation": {
+        "unique": 5151,
+        "unique_seen_in_training": 4470,
+        "unique_seen_in_training_share": 0.8677926616191031,
+        "row_seen_in_training_share": 0.9361873628588061
+      },
+      "confirmatory_evaluation": {
+        "unique": 4501,
+        "unique_seen_in_training": 3815,
+        "unique_seen_in_training_share": 0.8475894245723172,
+        "row_seen_in_training_share": 0.9052479585739892
+      }
+    }
+  },
+  "prespecified_sensitivity_samples": {
+    "route_start_depot_anchor": {
+      "definition": "Strict eligible routes whose IndexP=0 and IndexA=0 events are both depots; use the observed IndexA=0 depot arrival as a route-start anchor.",
+      "interpretation": "Checks whether the P-minus-M conclusion survives a more literal operational start time; it does not recover an earlier customer-message issuance time.",
+      "routes": 6963,
+      "split_route_counts": {
+        "training": 4195,
+        "validation": 1408,
+        "confirmatory_evaluation": 1360
+      }
+    },
+    "repeated_stop_event_key": {
+      "definition": "Apply every frozen quality filter except Stop-ID uniqueness and identify row events by (Route ID, IndexP).",
+      "interpretation": "Checks whether the strict sample's exclusion of multi-visit and repeated-stop routes changes the P-minus-M conclusion.",
+      "routes": 11037,
+      "split_route_counts": {
+        "training": 6213,
+        "validation": 2530,
+        "confirmatory_evaluation": 2294
+      }
+    }
+  },
+  "data_gate": {
+    "at_least_5000_routes": true,
+    "manifest_available_common_anchor": true,
+    "unique_route_stop_ids": true,
+    "complete_planned_and_actual_indices": true,
+    "delivery_arrivals_observed": true,
+    "ordered_week_split_available": true,
+    "all_amended_gates_pass": true
+  },
+  "holdout_status": "LOCKED"
+}

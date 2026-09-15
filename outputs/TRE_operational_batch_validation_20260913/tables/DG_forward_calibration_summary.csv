@@ -1,0 +1,2 @@
+tasks,global_spearman_DG_gain,global_spearman_priority_contribution,mean_batch_spearman_DG_gain,median_batch_spearman_DG_gain,positive_batch_correlation_percent
+59237,0.1959382456844913,0.1909507418942076,0.15283361511362673,0.15653050527558168,89.76744186046511

@@ -1,0 +1,9 @@
+{
+  "routes": 4112,
+  "drivers": 261,
+  "stage_variants": 2,
+  "new_controls": 5,
+  "response_conditions": 9,
+  "paired_comparisons": 90,
+  "cached_gain_reproduction": true
+}

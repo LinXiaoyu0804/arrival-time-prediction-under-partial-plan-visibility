@@ -1,0 +1,6 @@
+{
+  "date": "2026-09-13",
+  "change": "Assign every route to one batch using the Country, Week ID, and Day of Week recorded on its earliest executed stop (minimum IndexA).",
+  "reason": "A failed invariant check showed that 17 of 470 tuning routes crossed a calendar-day or week boundary. Grouping task rows directly would split a route across dispatch batches and create more than one minimum query for that route.",
+  "result_inspected_before_change": false
+}

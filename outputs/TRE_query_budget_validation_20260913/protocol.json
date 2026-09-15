@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-13",
+  "status": "Retrospective validation. The K=5 pooled clean-answer curve at the listed budgets was inspected before this script was frozen. All K=3 results, window-specific curves, nested budget choices, response curves, distributions, and intervals remain fully reported.",
+  "question": "Does selective use of a mismatched plan-stage signal yield a useful information-error frontier, and can a budget chosen only from past data transfer to the next time window?",
+  "reuse": "Reuse final actual-history-only base and stage-aware ETA models, task eligibility, feature allowlist, three forward windows, software-plan proxy answers, and deterministic tie break.",
+  "answer_categories": [
+    3,
+    5
+  ],
+  "query_budgets_per_route": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    10,
+    "all"
+  ],
+  "policies": {
+    "DG": "Predicted supplied-answer loss reduction.",
+    "ER": "Predicted baseline absolute error risk.",
+    "uncertainty": "Normalized service-stage entropy.",
+    "random": "Exact expectation for uniform sampling without replacement."
+  },
+  "budget_selection": "Split each six-week calibration block temporally: first four weeks fit temporary DG and ER scores; final two weeks choose a budget. Refit/reuse scores trained on all six weeks and apply the frozen budget to the next evaluation window. Report minimum-MAE and 90%-of-best-gain knee rules. Ties favor the smaller budget.",
+  "metrics": "Primary route-equal MAE. Also report system gain, attempted queries, gain per selected query, selected-task gain distribution, and the fraction of the observed gap to the privileged full-plan reference.",
+  "response": "Clean proxy answers and the previously frozen severe entropy-linked nonresponse scenario. The latter is a sensitivity model, not observed response behavior.",
+  "statistics": "Paired route bootstrap with 2,000 resamples, seed 20260913.",
+  "limits": "No observed human responses, query costs, customer outcomes, or untouched dataset. Budget curves characterize predictive value; they do not estimate economic value."
+}

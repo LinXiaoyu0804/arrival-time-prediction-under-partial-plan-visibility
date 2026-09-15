@@ -1,0 +1,26 @@
+{
+  "source_manifest.json": {
+    "size_bytes": 872,
+    "sha256": "4aa3da8e616d645adb03295b19b31b13b17944b2b67e2504d78a4c3dc826c7d2"
+  },
+  "data_dictionary.csv": {
+    "size_bytes": 2021,
+    "sha256": "d81becb3fe534eea5ac746c19bff069877f58863daa3dc067edd9bc819d18086"
+  },
+  "route_audit.csv": {
+    "size_bytes": 2122145,
+    "sha256": "0aaa4d0768ee4bcaa64379c5f5098527e0a825c989b9c2e99b1207d2c6458d6f"
+  },
+  "split_manifest.csv": {
+    "size_bytes": 191471,
+    "sha256": "2f1524d3160a0260068c7fe56cb39001fd7352150dee68e5dd9b82dffa39bde4"
+  },
+  "sensitivity_split_manifest.csv": {
+    "size_bytes": 542425,
+    "sha256": "4db739e85bd8ce893f1adec172f1faa0052b0ff8ec8e5b8da70bdf7ec2528df5"
+  },
+  "audit_summary.json": {
+    "size_bytes": 5220,
+    "sha256": "605c4a3f143b18cdffee1a68da156e7feedfab442a7a7edd5a6596c1bf5bf361"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "dataset_title": "Last-mile delivery route deviations dataset: planned vs. actual routes",
+  "dataset_doi": "10.17632/kkwgfvmtxn.1",
+  "dataset_version": 1,
+  "license": "CC BY 4.0",
+  "landing_page": "https://data.mendeley.com/datasets/kkwgfvmtxn/1",
+  "file_list_endpoint": "https://data.mendeley.com/public-api/datasets/kkwgfvmtxn/files?folder_id=root&version=1",
+  "download_url": "https://data.mendeley.com/public-files/datasets/kkwgfvmtxn/files/388ea249-0830-4906-a39e-7bcbd5ee837a/file_downloaded",
+  "retrieved_at": "2026-08-22T10:25:07+08:00",
+  "filename": "routes_performance.xlsx",
+  "size_bytes": 19713337,
+  "sha256": "8f17d15e189c99a34f2446daeaaf1a65d1e79045a94c4d3c452391c96d9cee00",
+  "official_size_bytes": 19713337,
+  "official_sha256": "8f17d15e189c99a34f2446daeaaf1a65d1e79045a94c4d3c452391c96d9cee00",
+  "integrity_match": true
+}
