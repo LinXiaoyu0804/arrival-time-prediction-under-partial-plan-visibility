@@ -57,7 +57,10 @@ PROTOCOL = {
         "Logistic regression of the frozen synthetic response indicator on stage entropy, fitted on "
         "the two-week budget-tuning period and applied to the following evaluation window."
     ),
-    "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913.",
+    "statistics": (
+        "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913. The exact repeated primary "
+        "MAE contrast uses the final-audit seed 20260914 so it has one reported interval throughout."
+    ),
     "limits": (
         "The response experiment validates the response-aware objective only within a synthetic "
         "entropy-linked scenario and is not evidence about human response behavior."
@@ -171,7 +174,8 @@ def placebo_experiment():
     comparisons = []
     for label in ["uniform_DG", "daily_raw_DG", "daily_ER", "random_capacity", "route_size_only", "permuted_DG"]:
         comparator = routes[routes.allocation.eq(label)]
-        stats = ra.driver_bootstrap_difference(dg, comparator)
+        seed = 20260914 if label == "uniform_DG" else 20260913
+        stats = ra.driver_bootstrap_difference(dg, comparator, seed=seed)
         comparisons.append({"comparison": f"daily_DG_minus_{label}", **stats})
     pd.DataFrame(comparisons).to_csv(OUT / "tables/placebo_driver_cluster_comparisons.csv", index=False)
     return routes
@@ -278,7 +282,8 @@ def alternative_metrics():
     for metric in ["mae", "rmse", "p90_ae", "over_60_percent"]:
         left = daily[["window", "Route ID", "driver", metric]].rename(columns={metric: "system_gain"})
         right = uniform[["window", "Route ID", metric]].rename(columns={metric: "system_gain"})
-        stats = ra.driver_bootstrap_difference(left, right)
+        seed = 20260914 if metric == "mae" else 20260913
+        stats = ra.driver_bootstrap_difference(left, right, seed=seed)
         comparisons.append({"metric": metric, "direction": "negative favors daily_DG", **stats})
     pd.DataFrame(comparisons).to_csv(OUT / "tables/alternative_metric_driver_cluster_comparisons.csv", index=False)
 

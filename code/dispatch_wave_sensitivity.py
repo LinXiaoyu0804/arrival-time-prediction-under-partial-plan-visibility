@@ -38,7 +38,11 @@ PROTOCOL = {
         "K=5, previously frozen clean-answer DG minimum-MAE budget per window, at least one query per "
         "route, at most ten, score divided by route size, exact same total attempts within every wave."
     ),
-    "statistics": "Paired driver-cluster bootstrap on the Monte Carlo mean route outcomes, 2,000 resamples.",
+    "statistics": (
+        "Paired driver-cluster bootstrap on the Monte Carlo mean route outcomes, 2,000 resamples, seed "
+        "20260913. The exact repeated 50-route and daily primary contrasts use the final-audit seed "
+        "20260914 so they have one reported interval throughout."
+    ),
     "limits": "Synthetic wave partitions measure coordination-scale sensitivity, not observed depot waves.",
 }
 
@@ -154,7 +158,8 @@ def main():
     comparisons = []
     for wave_size in WAVE_SIZES[1:]:
         alternative = routes[routes.wave_size.eq(str(wave_size))]
-        stats = ra.driver_bootstrap_difference(alternative, uniform)
+        seed = 20260914 if wave_size in [50, "daily"] else 20260913
+        stats = ra.driver_bootstrap_difference(alternative, uniform, seed=seed)
         comparisons.append({"wave_size": str(wave_size), **stats})
     pd.DataFrame(comparisons).to_csv(OUT / "tables/dispatch_wave_driver_cluster_comparisons.csv", index=False)
 

@@ -37,7 +37,10 @@ PROTOCOL = {
         "entropy-linked refusal at calibration 75th and 50th percentile thresholds",
         "10% and 20% adjacent-stage answer error (exact expectation)",
     ],
-    "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913.",
+    "statistics": (
+        "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913. The exact repeated clean K=5 "
+        "primary contrast uses the final-audit seed 20260914 so it has one reported interval throughout."
+    ),
     "limits": "All response and answer-error processes are sensitivity scenarios, not human observations.",
 }
 
@@ -153,7 +156,8 @@ def main():
     for (condition, k), group in routes.groupby(["condition", "k"]):
         daily = group[group.policy.eq("daily_DG")]
         uniform = group[group.policy.eq("uniform_DG")]
-        versus_uniform = ra.driver_bootstrap_difference(daily, uniform)
+        primary_seed = 20260914 if condition == "proxy_clean" and k == 5 else 20260913
+        versus_uniform = ra.driver_bootstrap_difference(daily, uniform, seed=primary_seed)
         versus_baseline = ra.driver_bootstrap_difference(daily, daily.assign(system_gain=0.0))
         comparisons.append(
             {

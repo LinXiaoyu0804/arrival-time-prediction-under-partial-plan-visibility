@@ -112,7 +112,6 @@ def bootstrap_gain_interval(route_rows, reps=2000, seed=20260914):
 def selected_task_and_workload_audit():
     task_rows = []
     workload_rows = []
-    marginal_rows = []
     batch_rows = []
     invariant_rows = []
     runtime_rows = []
@@ -145,18 +144,6 @@ def selected_task_and_workload_audit():
             wr["window"] = origin
             wr["allocation"] = label
             workload_rows.append(wr)
-
-            marginal = chosen.groupby("within_route_priority_rank").agg(
-                attempts=("clean_gain", "size"),
-                mean_gain=("clean_gain", "mean"),
-                median_gain=("clean_gain", "median"),
-                positive_percent=("clean_gain", lambda x: 100 * x.gt(0).mean()),
-                harm_percent=("clean_gain", lambda x: 100 * x.lt(0).mean()),
-                over_30_percent=("clean_gain", lambda x: 100 * x.gt(30).mean()),
-            ).reset_index()
-            marginal["window"] = origin
-            marginal["allocation"] = label
-            marginal_rows.append(marginal)
 
         b = q.assign(uniform=uniform, daily=daily).groupby(op.BATCH_COLUMNS).agg(
             routes=("Route ID", "nunique"),
@@ -241,7 +228,6 @@ def selected_task_and_workload_audit():
 
     tasks = pd.concat(task_rows, ignore_index=True)
     workloads = pd.concat(workload_rows, ignore_index=True)
-    marginals = pd.concat(marginal_rows, ignore_index=True)
     batches = pd.concat(batch_rows, ignore_index=True)
     invariants = pd.DataFrame(invariant_rows)
     runtimes = pd.DataFrame(runtime_rows)
@@ -277,13 +263,13 @@ def selected_task_and_workload_audit():
     routes.to_parquet(OUT / "tables/final_audit_route_results.parquet", index=False)
     task_summary.to_csv(OUT / "tables/final_audit_selected_gain_summary.csv", index=False)
     workload_summary.to_csv(OUT / "tables/final_audit_workload_summary.csv", index=False)
-    marginals.groupby(["allocation", "within_route_priority_rank"]).agg(
-        attempts=("attempts", "sum"),
-        mean_gain=("mean_gain", "mean"),
-        median_gain=("median_gain", "mean"),
-        positive_percent=("positive_percent", "mean"),
-        harm_percent=("harm_percent", "mean"),
-        over_30_percent=("over_30_percent", "mean"),
+    tasks.groupby(["allocation", "within_route_priority_rank"]).agg(
+        attempts=("clean_gain", "size"),
+        mean_gain=("clean_gain", "mean"),
+        median_gain=("clean_gain", "median"),
+        positive_percent=("clean_gain", lambda x: 100 * x.gt(0).mean()),
+        harm_percent=("clean_gain", lambda x: 100 * x.lt(0).mean()),
+        over_30_percent=("clean_gain", lambda x: 100 * x.gt(30).mean()),
     ).reset_index().to_csv(OUT / "tables/final_audit_marginal_query_ordinal.csv", index=False)
     batches.to_csv(OUT / "tables/final_audit_batch_capacity.csv", index=False)
     invariants.to_csv(OUT / "tables/final_audit_selection_invariance.csv", index=False)
