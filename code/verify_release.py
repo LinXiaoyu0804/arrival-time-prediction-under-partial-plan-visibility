@@ -122,7 +122,7 @@ def check_heterogeneity():
     overall = routes.loc["overall"]
     require(abs(overall.mean_incremental_gain - 1.0443046073862137) < 1e-12, "route audit mean changed")
     require(abs(overall.harmed_percent - 42.8988326848249) < 1e-9, "route harm share changed")
-    detail = pd.read_parquet(HETEROGENEITY / "tables/route_reallocation_detail.parquet")
+    detail = pd.read_csv(HETEROGENEITY / "tables/route_reallocation_detail.csv.gz")
     require(len(detail) == 4112, "route audit does not contain all evaluation routes")
     return {
         "route_harmed_percent": overall.harmed_percent,
