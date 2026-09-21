@@ -1,0 +1,15 @@
+{
+  "rows": 59237,
+  "routes": 4112,
+  "drivers": 261,
+  "outputs": {
+    "code/task_value_heterogeneity.py": "e41cda676d97f2d854e7fe5835154ff8aefbc32c61ec3d331b9ae95243c4e82b",
+    "figures/task_value_heterogeneity.pdf": "75954d6ae665f3cbaa07ca86bc6caa167d5ff82adb55e4e2d3566ca53a68a036",
+    "protocol.json": "3e52c10a4d35731cd7522d07fdd8a6c096577bdf6f37f45e1ebae5d98fbb62e1",
+    "tables/route_reallocation_detail.parquet": "ae0e02665e06e1813e37514441d9359e6da6722bbc5f2ae7afd7477e1f1f0e16",
+    "tables/route_reallocation_summary.csv": "55add1bbe1da3fe5f90526ecf538cce9744c721bfd76c9e6ac71f553fadd4881",
+    "tables/task_value_contrasts.csv": "80d296b5362be92adf4064a315e374498c409128f6d12ea4e364463b6da04a67",
+    "tables/task_value_profiles.csv": "d483df245521ef427fc74368e566cdc2e9778687b0bbc07df1a9b9a112a308cb",
+    "tables/task_value_profiles.tex": "050c0cdaa350d9c438393f11ad46d7320cd45ed717007dded0719f09d852cefd"
+  }
+}

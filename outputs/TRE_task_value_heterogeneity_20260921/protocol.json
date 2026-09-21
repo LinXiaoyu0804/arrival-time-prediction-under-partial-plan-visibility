@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-21",
+  "status": "Post-primary exploratory analysis prompted after the primary allocation results and after descriptive inspection. It does not alter the primary endpoint, models, budgets, or policy.",
+  "question": "Which pre-query task and route contexts have higher conditional proxy-confirmation value, and how often do individual routes improve or worsen when capacity is reallocated?",
+  "estimand": "base absolute error minus proxy-informed absolute error for every eligible task",
+  "weights": "inverse route size, normalized within each reported group",
+  "inference": "2,000 paired driver-cluster bootstrap resamples",
+  "primary_descriptive_groups": {
+    "route_size": [
+      "10-12 tasks",
+      "13-17 tasks",
+      "18 or more tasks"
+    ],
+    "time_window_width": [
+      "0-240 minutes",
+      "241-420 minutes",
+      "more than 420 minutes"
+    ]
+  },
+  "interpretation_limit": "The estimand is the conditional value of disclosing a recorded software-plan stage. It is not a causal estimate of a live driver's response or of customer-level business value."
+}
