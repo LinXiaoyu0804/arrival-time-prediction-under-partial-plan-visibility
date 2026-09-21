@@ -12,8 +12,9 @@ The operational question is: when a dispatcher can request only a limited number
 - `outputs/TRE_nearest_controls_20260913/`: six frozen error-only score files used by the retained comparisons.
 - `outputs/TRE_query_budget_validation_20260913/`: query-budget frontier and past-only budget choices.
 - `outputs/TRE_operational_batch_validation_20260913/`: final allocation results, robustness analyses, fitted artifacts, protocols, and checksums.
+- `outputs/TRE_task_value_heterogeneity_20260921/`: post-primary task-context profiles and route-level allocation downside audit.
 
-Manuscript files, PDF builds, abandoned methods, and exploratory outputs are intentionally excluded.
+Manuscript files, PDF builds, abandoned methods, and unretained exploratory outputs are intentionally excluded.
 
 ## Environment
 
@@ -42,6 +43,8 @@ python code/run_pipeline.py full
 ```
 
 The `full` stage is computationally expensive. The six nearest-control score files are retained as frozen inputs because the upstream exploratory model search is outside the final contribution. All allocation, robustness, and statistical comparisons used by the study remain executable.
+
+The heterogeneity audit is explicitly exploratory. It uses all 59,237 eligible tasks, inverse-route-size weights, and driver-cluster bootstrap intervals to examine pre-query time-window width, predicted route position, and stage uncertainty. It also reports the full route-level distribution of allocation gains and losses. These results motivate monitoring and fallback rules; they are not causal estimates of driver response.
 
 ## Data provenance and licenses
 
