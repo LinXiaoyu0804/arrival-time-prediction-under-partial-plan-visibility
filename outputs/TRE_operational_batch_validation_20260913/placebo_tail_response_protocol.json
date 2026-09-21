@@ -27,6 +27,6 @@
     "route-equal RMSE and tail error"
   ],
   "response_model": "Logistic regression of the frozen synthetic response indicator on stage entropy, fitted on the two-week budget-tuning period and applied to the following evaluation window.",
-  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913.",
+  "statistics": "Paired driver-cluster bootstrap, 2,000 resamples, seed 20260913. The exact repeated primary MAE contrast uses the final-audit seed 20260914 so it has one reported interval throughout.",
   "limits": "The response experiment validates the response-aware objective only within a synthetic entropy-linked scenario and is not evidence about human response behavior."
 }
