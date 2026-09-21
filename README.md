@@ -2,7 +2,7 @@
 
 This repository contains the code, public source data, and frozen experimental evidence for a study of selective predeparture confirmation in last-mile delivery.
 
-The operational question is: when a dispatcher can request only a limited number of route-stage confirmations, how should those requests be allocated across routes? The retained experiments compare equal per-route quotas with a predicted-gain allocator under exactly matched total communication capacity. In the primary reconstructed dispatch-cohort analysis, predicted-gain allocation reduces full-delivery mean absolute error by 1.044 minutes relative to the equal-quota policy (driver-clustered 95% CI: 0.541 to 1.646 minutes).
+The operational question is: when a dispatcher can request only a limited number of route-stage confirmations, how should those requests be allocated across routes? The retained experiments compare equal per-route quotas with a predicted-gain allocator under exactly matched total communication capacity. In the primary reconstructed dispatch-cohort analysis, predicted-gain allocation reduces route-equal mean absolute error by 1.044 minutes relative to the equal-quota policy (driver-clustered 95% CI: 0.541 to 1.646 minutes).
 
 ## Repository contents
 
