@@ -353,7 +353,7 @@ def main() -> None:
     route_detail, route_summary = route_reallocation()
     profiles.to_csv(TABLES / "task_value_profiles.csv", index=False)
     contrasts.to_csv(TABLES / "task_value_contrasts.csv", index=False)
-    route_detail.to_parquet(TABLES / "route_reallocation_detail.parquet", index=False)
+    route_detail.to_csv(TABLES / "route_reallocation_detail.csv.gz", index=False, compression="gzip")
     route_summary.to_csv(TABLES / "route_reallocation_summary.csv", index=False)
     make_main_table(profiles, TABLES / "task_value_profiles.tex")
     make_figure(profiles, route_summary, FIGURES / "task_value_heterogeneity.pdf")
