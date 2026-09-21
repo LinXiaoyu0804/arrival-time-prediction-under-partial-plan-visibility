@@ -11,6 +11,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "outputs/TRE_operational_batch_validation_20260913"
+HETEROGENEITY = ROOT / "outputs/TRE_task_value_heterogeneity_20260921"
 SOURCE = ROOT / "data/source/work_experiments/planned_actual_v1"
 
 
@@ -106,6 +107,29 @@ def check_claims():
     }
 
 
+def check_heterogeneity():
+    contrasts = pd.read_csv(HETEROGENEITY / "tables/task_value_contrasts.csv").set_index("contrast")
+    routes = pd.read_csv(HETEROGENEITY / "tables/route_reallocation_summary.csv").set_index("attempt_change")
+    required = {
+        "moderate_minus_narrow_windows": 5.480260,
+        "late_minus_early_position": 3.834768,
+        "high_minus_low_stage_uncertainty": 6.752386,
+    }
+    for name, expected in required.items():
+        row = contrasts.loc[name]
+        require(abs(row.difference - expected) < 1e-6, f"heterogeneity contrast changed: {name}")
+        require(row.ci_low > 0, f"heterogeneity contrast no longer excludes zero: {name}")
+    overall = routes.loc["overall"]
+    require(abs(overall.mean_incremental_gain - 1.0443046073862137) < 1e-12, "route audit mean changed")
+    require(abs(overall.harmed_percent - 42.8988326848249) < 1e-9, "route harm share changed")
+    detail = pd.read_parquet(HETEROGENEITY / "tables/route_reallocation_detail.parquet")
+    require(len(detail) == 4112, "route audit does not contain all evaluation routes")
+    return {
+        "route_harmed_percent": overall.harmed_percent,
+        "task_context_contrasts_verified": len(required),
+    }
+
+
 def check_release_scope():
     forbidden_dirs = {
         "TRE_operational_allocation_reconstructed_20260914",
@@ -127,6 +151,7 @@ def main():
         "source_doi": check_source(),
         "evidence_files_verified": check_evidence_hashes(),
         **check_claims(),
+        **check_heterogeneity(),
     }
     print(json.dumps(report, indent=2))
 
