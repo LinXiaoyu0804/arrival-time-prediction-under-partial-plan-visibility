@@ -1,6 +1,6 @@
 {
   "date": "2026-09-13",
-  "change": "Added driver-cluster bootstrap as the reporting interval to match the existing paper; retained the route bootstrap output as a sensitivity check.",
-  "reason": "Routes repeat within drivers, and the reconstructed manuscript already uses driver-cluster resampling.",
+  "change": "Added driver-cluster bootstrap as the primary reporting interval; retained the route bootstrap output as a sensitivity check.",
+  "reason": "Routes repeat within drivers, so driver-cluster resampling preserves the dependence structure.",
   "effect_estimates_changed": false
 }

@@ -16,6 +16,6 @@
   ],
   "route_rows": 607936,
   "status": "complete",
-  "report_complete": true,
+  "reporting_outputs_complete": true,
   "driver_cluster_intervals": true
 }
