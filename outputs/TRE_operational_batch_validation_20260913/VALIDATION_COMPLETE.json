@@ -5,7 +5,7 @@
     "operational daily-batch allocation",
     "past-only budget and cap selection",
     "matched-workload placebos",
-    "post-review DG-versus-ER and reconstructed-cohort-size audit",
+    "DG-versus-ER and reconstructed-cohort-size robustness audit",
     "alternative metrics and slices",
     "DG forward ranking calibration",
     "answer noise and refusal stress tests",
@@ -18,5 +18,5 @@
   ],
   "integrity_checks_passed": 16,
   "integrity_checks_total": 16,
-  "files_in_manifest": 94
+  "files_in_manifest": 93
 }
