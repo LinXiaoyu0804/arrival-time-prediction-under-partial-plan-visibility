@@ -13,3 +13,4 @@ build/
 *.synctex.gz
 .DS_Store
 Thumbs.db
+outputs/**/*.md
