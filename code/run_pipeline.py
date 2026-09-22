@@ -11,7 +11,6 @@ CODE = ROOT / "code"
 
 SCENARIO = [
     "scenario_alignment.py",
-    "summarize_scenario_alignment.py",
     "scenario_conclusion_stability.py",
     "query_budget_frontier.py",
     "report_query_budget_frontier.py",
@@ -24,7 +23,7 @@ OPERATIONAL = [
     "dispatch_wave_sensitivity.py",
     "batch_anchor_sensitivity.py",
     "operational_final_audit.py",
-    "reviewer_critique_audit.py",
+    "additional_robustness_audit.py",
     "finalize_operational_validation.py",
 ]
 AUDIT = ["verify_release.py", "generate_manifest.py"]
